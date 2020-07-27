@@ -9,3 +9,6 @@ the project into 4 parts:
 - Text Processing 
 - Creating the Model
 -  Creating the Web App 
+
+If you have a particular interest for any of the parts of the proyect you can check them out in the folders specify for them.You can also check the web app in the following 
+Heroku link: https://topic-model-app.herokuapp.com/
