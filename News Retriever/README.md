@@ -4,4 +4,4 @@ In this part of the project I develop a code able to web scrape the main page of
 
 ## Data Collected.
 
-At the end, the program was able to collect the news articles from 74 different days, giving us around 2000 news articles. Allowing us to correctly retrieved and structured the data for its late processing, before inputting the data in the LDA model. 
+At the end, the program was able to collect the news from 74 different days, giving us around 2000 articles. Allowing us to correctly retrieved and structured the data for its later processing, before inputting the data in the LDA model. 
