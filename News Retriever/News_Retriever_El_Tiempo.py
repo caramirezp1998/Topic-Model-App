@@ -2,10 +2,6 @@
 # coding: utf-8
 
 # # Web Scraping news retriever
-# This project will consist of making an app that can download 5 news from a given number of websites for later usage of their information in an abstractive summarization model and extractive summarization model.
-
-# In[2]:
-
 
 #Imports
 import pandas as pd
@@ -26,8 +22,9 @@ import os
 # In[122]:
 
 
-print("Se cargaron las librerias")
+print("Libraries are loaded")
 
+# Here we use the beautiful soup library to parse the html code from the link
 url = "https://www.eltiempo.com/"
 res = rq.get(url)
 html = res.text
@@ -39,6 +36,8 @@ pretty_html=BeautifulSoup.prettify(soup)
 
 
 def content_of(url):
+    """This function is in charge parsing the url receive by parameter and extracting all the content
+    inside the p tags (text tags) and title, which is the h1 tag. It returns a tuple of the headline and the title """
     res = rq.get(url)
     html = res.text
     soup = BeautifulSoup(html)
@@ -53,7 +52,8 @@ def content_of(url):
     return (headline, contenido)
 
 def news_of(url):
-    """This function extracts and return all the hyperlinks with the word of interest chosen of a certain link"""
+    """This function extracts and return all the hyperlinks that can be accesed through the url given by parameter,
+    that belongs the class article and is not a video. This function returns a list with all the links to the articles of the web page"""
     res = rq.get(url)
     html = res.text
     soup = BeautifulSoup(html)
@@ -79,6 +79,8 @@ def news_of(url):
 
 
 def content_of_all_El_Tiempo(url):
+    """ This function recieves the El Tiempo news website and uses the other two functions in order to created a dictionary, with the title, content, link, and category of the article. The dictionary is return after all the articles accessible through the main page are revised for extraction.  
+    """
     refs= news_of(url)
     news=[]
     for link in refs:
@@ -99,7 +101,7 @@ def content_of_all_El_Tiempo(url):
 # In[5]:
 
 def json_content(url):
-    
+    """ This function saves the dictionary recieved by the last function and saves it in the given directory in a json format with the date of extraction in its name"""
     print("\n")
     print("\n")
     print(os.getcwd())
@@ -113,37 +115,13 @@ def json_content(url):
 
 # In[6]:
 
-print("Se definieron las funciones")
+print("Functions were declared successfully")
 
 url = "https://www.eltiempo.com"
 json_content(url)
 
-print("Exito")
+print("Content was successfully extracted and saved")
 # In[11]:
-
-
-# x=datetime.datetime.now().strftime("%Y-%m-%d")
-# with open(f"El_Tiempo/news_El_Tiempo_{x}.json", 'r') as d:
-#     info_dict =js.load(d)
-# df=pd.DataFrame(info_dict)
-# df.head()
-# df.shape
-
-
-# In[141]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
 
 
 
