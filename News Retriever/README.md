@@ -5,3 +5,5 @@ In this part of the project I develop a code able to web scrape the main page of
 ## Data Collected.
 
 At the end, the program was able to collect the news from around 80 different days, giving us around 2000 articles. Allowing us to correctly retrieved and structured the data for its later processing, before inputting the data in the LDA model. 
+
+If you are interest in the code I created to web scrape just check the news retriever file.  If you are interested in using those news files they are available 
